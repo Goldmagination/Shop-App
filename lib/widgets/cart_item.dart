@@ -41,12 +41,13 @@ class CartItem extends StatelessWidget {
       child: Card(
         margin: EdgeInsets.symmetric(
           horizontal: 15,
-          vertical: 4,
+          vertical: 7,
         ),
         child: Padding(
           padding: EdgeInsets.all(8),
           child: ListTile(
             leading: CircleAvatar(
+              backgroundColor: Theme.of(context).primaryColor,
               child: FittedBox(
                 child: Padding(
                   padding: EdgeInsets.all(5),
