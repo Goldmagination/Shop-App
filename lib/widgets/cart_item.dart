@@ -53,6 +53,7 @@ class CartItem extends StatelessWidget {
                   padding: EdgeInsets.all(5),
                   child: Text(
                     '\$$price',
+                    style: TextStyle(color: Colors.white),
                   ),
                 ),
               ),
