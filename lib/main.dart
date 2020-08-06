@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-        title: 'Flutter Demo',
+        title: 'Shop App',
         theme: ThemeData(
           primaryColor: Colors.purple,
           accentColor: Colors.deepOrange,
