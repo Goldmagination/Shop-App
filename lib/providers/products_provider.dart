@@ -90,9 +90,7 @@ class Products with ChangeNotifier {
         _items = loadedList;
         notifyListeners();
       });
-    } catch (error) {
-      throw (error);
-    }
+    } catch (error) {}
   }
 
   Future<void> addProduct(Product product) async {
