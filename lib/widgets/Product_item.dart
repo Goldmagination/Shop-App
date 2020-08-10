@@ -14,6 +14,7 @@ class ProductItem extends StatelessWidget {
   // ProductItem(this.id, this.title, this.imageUrl, this.price);
   @override
   Widget build(BuildContext context) {
+    final _scaffold = Scaffold.of(context);
     final product = Provider.of<Product>(context, listen: false);
     final cart = Provider.of<Cart>(context, listen: false);
     return ClipRRect(
