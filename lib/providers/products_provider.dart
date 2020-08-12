@@ -97,7 +97,8 @@ class Products with ChangeNotifier {
   }
 
   Future<void> addProduct(Product product) async {
-    const url = 'https://flutter-tutorialshopapp.firebaseio.com/products.json';
+    final url =
+        'https://flutter-tutorialshopapp.firebaseio.com/products.json?auth=$_authToken';
     try {
       final response = await http.post(
         url,
@@ -127,7 +128,7 @@ class Products with ChangeNotifier {
     final prodIndex = _items.indexWhere((prod) => prod.id == id);
     if (prodIndex >= 0) {
       final url =
-          'https://flutter-tutorialshopapp.firebaseio.com/products/$id.json';
+          'https://flutter-tutorialshopapp.firebaseio.com/products/$id.json?auth=$_authToken';
       await http.patch(url,
           body: json.encode({
             'title': newProduct.title,
@@ -144,7 +145,7 @@ class Products with ChangeNotifier {
 
   Future<void> deleteProduct(String id) async {
     final url =
-        'https://flutter-tutorialshopapp.firebaseio.com/products/$id.json';
+        'https://flutter-tutorialshopapp.firebaseio.com/products/$id.json?auth=$_authToken';
     final existingProductIndex = _items.indexWhere((prod) => prod.id == id);
     var existingProduct = _items[existingProductIndex];
     _items.removeAt(existingProductIndex);
