@@ -110,6 +110,7 @@ class _AuthCardState extends State<AuthCard>
 
   @override
   void initState() {
+    super.initState();
     _controller =
         AnimationController(vsync: this, duration: Duration(milliseconds: 300));
     _animationHeight = Tween<Size>(
@@ -123,8 +124,7 @@ class _AuthCardState extends State<AuthCard>
           parent: _controller,
           curve: Curves.linear), //Optionality with the Curves
     );
-    _animationHeight.addListener(() => setState(() {}));
-    super.initState();
+    // _animationHeight.addListener(() => setState(() {}));
   }
 
   @override
@@ -215,12 +215,16 @@ class _AuthCardState extends State<AuthCard>
         borderRadius: BorderRadius.circular(10.0),
       ),
       elevation: 8.0,
-      child: Container(
-        // height: _authMode == AuthMode.Signup ? 320 : 260,
-        height: _animationHeight.value.height,
-        constraints: BoxConstraints(minHeight: _animationHeight.value.height),
-        width: deviceSize.width * 0.75,
-        padding: EdgeInsets.all(16.0),
+      child: AnimatedBuilder(
+        animation: _animationHeight,
+        builder: (ctx, ch) => Container(
+            // height: _authMode == AuthMode.Signup ? 320 : 260,
+            height: _animationHeight.value.height,
+            constraints:
+                BoxConstraints(minHeight: _animationHeight.value.height),
+            width: deviceSize.width * 0.75,
+            padding: EdgeInsets.all(16.0),
+            child: ch),
         child: Form(
           key: _formKey,
           child: SingleChildScrollView(
